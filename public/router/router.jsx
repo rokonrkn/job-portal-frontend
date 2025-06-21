@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loding from "../../src/shared/Looding/Loding"; 
+import Loign from "../../src/shared/Login/Loign";
+import Regsitration from "../../src/shared/Regsitration/Regsitration";
 
 const MainLayout = lazy(() => import("../../src/Layout/MainLayout"));
 const Home = lazy(() => import("../../src/components/Home/Home"));
@@ -43,4 +45,20 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/login',
+    element: (
+      <Suspense fallback={<Loding />}>
+        <Loign />
+      </Suspense>
+    )
+  },
+  {
+    path: '/register',
+    element: (
+      <Suspense fallback={<Loding />}>
+        <Regsitration />
+      </Suspense>
+    )
+  }
 ]);
